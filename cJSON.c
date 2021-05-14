@@ -43,7 +43,12 @@ static int cJSON_strcasecmp(const char *s1,const char *s2)
 	return tolower(*(const unsigned char *)s1) - tolower(*(const unsigned char *)s2);
 }
 
-static void *(*cJSON_malloc)(size_t sz) = malloc;
+static void *(*cJSON_malloc)(size_t sz) = malloc;  
+//利用函数指针定义一个函数cJSON_malloc，这个函数的入参为size_t类型的变量sz
+//返回一个void *类型的指针（可以转换成任何其它类型的指针）
+//利用函数指针定义新的函数的格式：“返回值 (*函数名)(入参类型与变量) = 原函数地址（&可加可不加）”
+
+
 static void (*cJSON_free)(void *ptr) = free;
 
 static char* cJSON_strdup(const char* str)
