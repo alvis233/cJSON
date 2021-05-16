@@ -323,6 +323,10 @@ static char *print_object(cJSON *item,int depth,int fmt,printbuffer *p);
 
 /* Utility to jump whitespace and cr/lf */
 static const char *skip(const char *in) {while (in && *in && (unsigned char)*in<=32) in++; return in;}
+// 跳过字符串开头的 空格 和 回车 ;
+// 循环条件为：指针不为空，指针所指地址中的内容不为空，指针所指地址中的内容的ascii 码小于等于32时 真
+// ASCII 码中，0-31与127为控制字符，32为空格
+
 
 /* Parse an object - create a new root, and populate. */
 cJSON *cJSON_ParseWithOpts(const char *value,const char **return_parse_end,int require_null_terminated)
